@@ -11,9 +11,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
+
 import java.sql.Struct;
 
 public class MainActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
-
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navLisener =
@@ -53,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
                             selectFragment).addToBackStack(null).commit();
                             return true;
                 }
-
-
             };
+
+
 
 }

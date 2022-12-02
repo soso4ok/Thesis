@@ -3,26 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:foregroundGravity="right">
 
 
     <FrameLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="169dp">
+        android:layout_height="140dp">
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="85dp"
-            android:layout_height="41dp"
+            android:layout_width="75dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="55px"
             android:layout_marginTop="80px"
             app:srcCompat="@drawable/full_logo" />
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="61dp"
-            android:layout_height="64dp"
+            android:layout_width="51dp"
+            android:layout_height="48dp"
             android:layout_gravity="right"
             android:layout_marginTop="50px"
             android:layout_marginRight="50px"
@@ -34,7 +35,7 @@
             android:layout_height="57dp"
             android:layout_gravity="bottom"
             android:layout_marginLeft="40px"
-            android:layout_marginBottom="20px"
+            android:layout_marginBottom="10px"
             android:fontFamily="@font/bungee_shade"
             android:text="@string/promotions"
             android:textColor="@color/purple_500"
@@ -46,11 +47,22 @@
             android:layout_height="60dp"
             android:layout_gravity="bottom"
             android:layout_marginLeft="270px"
-            android:layout_marginBottom="50px"
+            android:layout_marginBottom="30px"
             app:srcCompat="@drawable/arrow" />
+    </FrameLayout>
 
+    <FrameLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="40dp" >
 
-
+        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+            android:id="@+id/carousel"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            />
 
     </FrameLayout>
 

@@ -135,12 +135,13 @@
             android:layout_width="155dp"
             android:layout_height="48dp"
             android:layout_marginTop="8dp"
+            android:paddingTop="-40px"
             android:background="@drawable/singup_btn"
             android:fontFamily="@font/bungee"
             android:text="@string/Sing_Up"
             android:textAllCaps="false"
-            android:textColor="#966B9D"
-            android:textSize="30px"
+            android:textColor="@color/white"
+            android:textSize="40px"
             app:rippleColor="#FF0101"
             app:strokeColor="#FFFFFF" />
     </LinearLayout>
