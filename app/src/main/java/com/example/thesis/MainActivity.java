@@ -3,33 +3,45 @@ package com.example.thesis;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.navigation.NavigationView;
 
-import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
-
-import java.sql.Struct;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    FragmentActivity fragmentActivity = new FragmentActivity();
 
 
+    private FragmentStateAdapter pagerAdapter;
+
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+        //Bottom menu
         BottomNavigationView bottomNav = findViewById(R.id.botton_menu);
         bottomNav.setOnNavigationItemSelectedListener(navLisener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
     }
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener navLisener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -57,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                 }
             };
-
 
 
 }

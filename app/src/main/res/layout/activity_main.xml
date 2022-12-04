@@ -9,9 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_container"
-        android:layout_above="@+id/botton_menu">
-
+        android:id="@+id/fragment_container">
     </FrameLayout>
 
 
@@ -27,16 +25,6 @@
         app:menu="@menu/menu_bar"
         android:background="@drawable/menu_shape"/>
         >
-
-
-
-
-
-
-
-
-
-
 
 
 </RelativeLayout>
