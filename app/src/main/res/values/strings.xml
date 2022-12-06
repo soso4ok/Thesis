@@ -2,6 +2,9 @@
     <string name="app_name">Thesis</string>
     <string name="Login">Log In</string>
     <string name="Sing_Up">Sing Up</string>
-    <string name="Sing_In">Sing In</string>
+    <string name="Sing_In">Login</string>
     <string name="promotions">PROMOTIONS</string>
+    <string name="radio_btn1">Fruit</string>
+    <string name="radio_btn2">Salt</string>
+    <string name="search">SEARCH</string>
 </resources>

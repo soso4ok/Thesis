@@ -13,9 +13,8 @@
         android:id="@+id/imageView"
         android:layout_width="187dp"
         android:layout_height="242dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/allcyclic" />
@@ -25,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:layout_marginBottom="20px"
         android:fontFamily="@font/bungee_inline"
         android:text="@string/Sing_In"
         android:textColor="@color/old_rose"
@@ -34,80 +32,80 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="230dp"
-        android:layout_height="2dp"
-        android:background="@android:color/black"
-        android:backgroundTint="@color/background_tem"
+    <LinearLayout
+        android:layout_width="297dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0">
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="270dp"
-        android:layout_height="48dp"
-        android:backgroundTint="@color/background"
-        android:drawableLeft="@drawable/password"
-        android:drawablePadding="50px"
-        android:ems="10"
-        android:fontFamily="@font/bungee_inline"
-        android:hint="password"
-        android:inputType="textPassword"
-        android:paddingLeft="18px"
-        android:paddingBottom="0px"
-        android:textColor="@color/purple_500"
-        android:textColorHint="@color/logreg"
-        android:textSize="30px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="271dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/background"
+            android:drawableLeft="@drawable/ic_mail"
+            android:drawablePadding="40px"
+            android:fontFamily="@font/bungee_inline"
+            android:hint="gmail"
+            android:maxLength="40"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:paddingBottom="10px"
+            android:textColor="@color/purple_500"
+            android:textColorHint="@color/logreg"
+            android:textSize="15sp" />
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="238dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/background"
-        android:drawableLeft="@drawable/mail"
-        android:drawablePadding="40px"
-        android:fontFamily="@font/bungee_inline"
-        android:hint="gmail"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:paddingBottom="10px"
-        android:textColor="@color/purple_500"
-        android:textColorHint="@color/logreg"
-        android:textSize="30px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="270dp"
+            android:layout_height="2dp"
+            android:background="@android:color/black"
+            android:backgroundTint="@color/background_tem"
+            android:rotationY="181" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="270dp"
-        android:layout_height="2dp"
-        android:background="@android:color/black"
-        android:backgroundTint="@color/background_tem"
-        android:rotationY="181"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="229dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/background"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="50px"
+            android:ems="10"
+            android:maxLength="16"
+            android:fontFamily="@font/bungee_inline"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:paddingLeft="18px"
+            android:paddingBottom="0px"
+            android:textColor="@color/purple_500"
+            android:textColorHint="@color/logreg"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="230dp"
+            android:layout_height="2dp"
+            android:background="@android:color/black"
+            android:backgroundTint="@color/background_tem" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="354dp"
-        android:layout_height="146dp"
+        android:layout_width="355dp"
+        android:layout_height="114dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.758"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.746"
         tools:ignore="MissingConstraints">
 
         <Button
@@ -119,22 +117,20 @@
             android:paddingTop="-40px"
             android:text="@string/Login"
             android:textColor="#FFF"
-            android:textSize="40px" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/singup_btn"
             android:layout_width="155dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="14dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/singup_btn"
             android:fontFamily="@font/bungee"
-            android:paddingTop="-40px"
             android:text="@string/Sing_Up"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="40px"
-            app:rippleColor="#FF0101"
-            app:strokeColor="#FFFFFF" />
+            android:textColor="@color/purple_500"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

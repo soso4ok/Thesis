@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -46,23 +47,130 @@
             android:layout_width="185dp"
             android:layout_height="60dp"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="270px"
-            android:layout_marginBottom="30px"
+            android:layout_marginLeft="110dp"
+            android:layout_marginBottom="18dp"
             app:srcCompat="@drawable/arrow" />
     </FrameLayout>
 
-
     <FrameLayout
+        android:id="@+id/slider"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_below="@+id/header"
-            android:layout_marginTop="6dp">
+            android:layout_marginTop="6dp"
+            android:background="#99966B9D">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerImageSlider"
         android:layout_width="match_parent"
-        android:layout_height="115dp"
+        android:layout_height="125dp"
         android:layout_margin="0dp" />
     </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/slider"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginEnd="70dp"
+                android:background="@drawable/search_template"></View>
+
+            <EditText
+                android:id="@+id/SearchEditText"
+                android:layout_width="239dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/bungee_inline"
+                android:hint="@string/search"
+                android:maxLength="15"
+                android:paddingTop="12dp"
+                android:paddingBottom="0dp"
+                android:textColor="@color/purple_500"
+                android:textColorHint="@color/logreg"
+                android:textSize="15sp" />
+        </FrameLayout>
+
+        <ImageButton
+            android:id="@+id/filter"
+            android:layout_width="50dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="-60dp"
+            app:srcCompat="@drawable/ic_filter" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search"
+        android:orientation="horizontal"
+        android:paddingStart="15dp">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:checkedButton="@id/fruit"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/fruit"
+                android:layout_width="82dp"
+                android:layout_height="35dp"
+                android:background="@drawable/category_background_selector"
+                android:button="@color/purple_500"
+                android:drawableLeft="@drawable/ic_fruit_bowl"
+                android:fontFamily="@font/bungee"
+                android:paddingStart="5dp"
+                android:text="@string/radio_btn1"
+                android:textAlignment="center"
+                android:textColor="@drawable/category_text_selector"
+                android:textSize="11dp" />
+
+            <RadioButton
+                android:id="@+id/salt"
+                android:layout_width="82dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/category_background_selector"
+                android:button="@color/purple_500"
+                android:drawableLeft="@drawable/ic_salt"
+                android:fontFamily="@font/bungee"
+                android:paddingStart="12dp"
+                android:text="@string/radio_btn2"
+                android:textAlignment="center"
+                android:textColor="@drawable/category_text_selector"
+                android:textSize="11dp" />
+        </RadioGroup>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="35dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="129dp"
+                android:layout_height="35dp"
+               android:layout_gravity="end"
+                android:layout_marginTop="2dp"
+                app:srcCompat="@drawable/menu_arrow" />
+        </FrameLayout>
+    </LinearLayout>
+
 
 </RelativeLayout>

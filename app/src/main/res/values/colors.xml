@@ -2,6 +2,7 @@
 <resources>
     <color name="menu">#FFDEC6</color>
     <color name="background">#FFF4EC</color>
+    <color name="main_orange">#F2B880</color>
     <color name="background_tem">#E7CFBC</color>
     <color name="logreg">#C5A084</color>
     <color name="old_rose">#CC8080</color>
@@ -11,6 +12,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="red">#FF0000</color>
+    <color name="transment">#02FFFFFF</color>
 </resources>

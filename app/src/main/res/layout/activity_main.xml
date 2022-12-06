@@ -24,7 +24,6 @@
         app:itemIconTint="@color/old_rose"
         app:menu="@menu/menu_bar"
         android:background="@drawable/menu_shape"/>
-        >
 
 
 </RelativeLayout>

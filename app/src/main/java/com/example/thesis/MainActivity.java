@@ -9,7 +9,9 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -19,19 +21,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    FragmentActivity fragmentActivity = new FragmentActivity();
-
-
     private FragmentStateAdapter pagerAdapter;
-
-
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
         //Bottom menu
@@ -69,6 +65,4 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                 }
             };
-
-
 }
