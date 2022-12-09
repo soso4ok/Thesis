@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/header"
@@ -58,7 +59,7 @@
             android:layout_height="130dp"
             android:layout_below="@+id/header"
             android:layout_marginTop="6dp"
-            android:background="#99966B9D">
+            android:background="@color/white">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerImageSlider"
@@ -73,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_below="@+id/slider"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
@@ -101,7 +102,8 @@
                 android:paddingBottom="0dp"
                 android:textColor="@color/purple_500"
                 android:textColorHint="@color/logreg"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
         </FrameLayout>
 
         <ImageButton
@@ -109,7 +111,8 @@
             android:layout_width="50dp"
             android:layout_height="46dp"
             android:layout_marginStart="-60dp"
-            app:srcCompat="@drawable/ic_filter" />
+            app:srcCompat="@drawable/ic_filter"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -120,6 +123,7 @@
         android:paddingStart="15dp">
 
         <RadioGroup
+            android:id="@+id/radio_battons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
@@ -153,9 +157,9 @@
                 android:text="@string/radio_btn2"
                 android:textAlignment="center"
                 android:textColor="@drawable/category_text_selector"
-                android:textSize="11dp" />
+                android:textSize="11dp"
+                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
         </RadioGroup>
-
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -173,4 +177,12 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drink_list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="12dp"
+        tools:listitem="@layout/product_templates"
+        android:layout_marginBottom="67dp"/>
+
+</LinearLayout>

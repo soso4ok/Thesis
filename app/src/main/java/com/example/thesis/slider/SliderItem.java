@@ -1,10 +1,10 @@
-package com.example.thesis;
+package com.example.thesis.slider;
 
 public class SliderItem {
 
     private int image;
 
-    SliderItem(int image) {
+    public SliderItem(int image) {
         this.image = image;
     }
 

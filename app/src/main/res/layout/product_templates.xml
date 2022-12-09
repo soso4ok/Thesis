@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/design_template"
+        android:orientation="horizontal">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/tamplate_img"
+            android:layout_width="101dp"
+            android:layout_height="91dp"
+            android:src="@drawable/bubbletea_pear_delight" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="92dp"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@+id/tamplate_img"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:fontFamily="@font/bungee_inline"
+                android:includeFontPadding="false"
+                android:text="@string/bubbleTeaFirst"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:text="@string/Lorem"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bungee_inline"
+                android:text="@string/FirstPrice"
+                android:textSize="17dp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

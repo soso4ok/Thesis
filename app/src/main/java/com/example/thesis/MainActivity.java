@@ -3,21 +3,19 @@ package com.example.thesis;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.text.InputFilter;
 import android.view.MenuItem;
-import android.widget.EditText;
 
+import com.example.thesis.fragments.HomeFragment;
+import com.example.thesis.fragments.LocationFragment;
+import com.example.thesis.fragments.QrCodeFragment;
+import com.example.thesis.fragments.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        replaceFragment(new HomeFragment());
 
         //Bottom menu
         BottomNavigationView bottomNav = findViewById(R.id.botton_menu);
@@ -36,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
     }
 
 

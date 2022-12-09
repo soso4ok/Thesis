@@ -1,4 +1,4 @@
-package com.example.thesis;
+package com.example.thesis.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,11 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class LocationFragment extends Fragment {
+import com.example.thesis.R;
+
+public class UserFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_location,  container, false);
+        return inflater.inflate(R.layout.fragment_user,  container, false);
     }
 }

@@ -13,10 +13,10 @@
     </FrameLayout>
 
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/botton_menu"
         android:layout_width="match_parent"
+        android:paddingHorizontal="30dp"
         android:layout_height="200px"
         android:layout_alignParentBottom="true"
         app:labelVisibilityMode="unlabeled"
