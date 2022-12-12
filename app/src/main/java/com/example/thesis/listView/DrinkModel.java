@@ -1,17 +1,21 @@
 package com.example.thesis.listView;
 
-public class Drink {
+public class DrinkModel {
 
+    private int key;
     private String name;
     private String text;
     private String price;
     private int imageID;
 
-    public Drink(String name, String text, int imageID, String price) {
+    public DrinkModel(String name, String text, int imageID, String price) {
         this.name = name;
         this.text = text;
         this.price = price;
         this.imageID = imageID;
+    }
+
+    public DrinkModel() {
     }
 
     public String getPrice() {
@@ -20,7 +24,7 @@ public class Drink {
 
     @Override
     public String toString() {
-        return "Drink{" +
+        return "DrinkModel{" +
                 "name='" + name + '\'' +
                 ", text='" + text + '\'' +
                 ", price='" + price + '\'' +
@@ -40,5 +44,19 @@ public class Drink {
         return imageID;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setImageID(int imageID) {
+        this.imageID = imageID;
+    }
 }

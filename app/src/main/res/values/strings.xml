@@ -5,13 +5,18 @@
     <string name="Sing_In">Login</string>
     <string name="promotions">PROMOTIONS</string>
     <string name="radio_btn1">Fruit</string>
-    <string name="radio_btn2">Salt</string>
+    <string name="radio_btn2">SOUR</string>
     <string name="search">SEARCH</string>
     <string name="bubbleTeaFirst">PEAR DELIGHT</string>
     <string name="FirstPrice">$10</string>
     <string name="bubbleTeaSecond">PARADASE BEACH</string>
     <string name="SecondPrice">$8</string>
     <string name="bubbleTeaThird">KIWI BOMB</string>
-    <string name="ThirdPrice">$9</string>
+    <string name="ThirdPrice">$7</string>
+    <string name="bubbleTeaFifth">COTTON CANDY</string>
+    <string name="FourthPrice">$9</string>
+    <string name="bubbleTeaFourth">MILKY WAY</string>
+    <string name="FifthPrice">$12</string>
+
     <string name="Lorem">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit...</string>
 </resources>

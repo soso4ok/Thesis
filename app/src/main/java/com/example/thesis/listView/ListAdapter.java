@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thesis.R;
@@ -18,11 +17,11 @@ import java.util.ArrayList;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
    Context context;
-   ArrayList<Drink> drinkArrayList;
+   ArrayList<DrinkModel> drinkModelArrayList;
 
-   public ListAdapter(Context context, ArrayList<Drink> drinkArrayList) {
+   public ListAdapter(Context context, ArrayList<DrinkModel> drinkModelArrayList) {
       this.context = context;
-      this.drinkArrayList = drinkArrayList;
+      this.drinkModelArrayList = drinkModelArrayList;
    }
 
    @NonNull
@@ -34,17 +33,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
    @Override
    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-      Drink drink = drinkArrayList.get(position);
-      holder.tamplateImg.setImageResource(drink.getImageID());
-      holder.Title.setText(drink.getName());
-      holder.Text.setText(drink.getText());
-      holder.Price.setText(drink.getPrice());
+      DrinkModel drinkModel = drinkModelArrayList.get(position);
+      holder.tamplateImg.setImageResource(drinkModel.getImageID());
+      holder.Title.setText(drinkModel.getName());
+      holder.Text.setText(drinkModel.getText());
+      holder.Price.setText(drinkModel.getPrice());
    }
 
 
    @Override
    public int getItemCount() {
-      return drinkArrayList.size();
+      return drinkModelArrayList.size();
    }
 
    public static class MyViewHolder extends RecyclerView.ViewHolder {

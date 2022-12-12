@@ -111,8 +111,7 @@
             android:layout_width="50dp"
             android:layout_height="46dp"
             android:layout_marginStart="-60dp"
-            app:srcCompat="@drawable/ic_filter"
-            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+            app:srcCompat="@drawable/ic_filter"/>
     </LinearLayout>
 
     <LinearLayout
@@ -123,15 +122,15 @@
         android:paddingStart="15dp">
 
         <RadioGroup
-            android:id="@+id/radio_battons"
+            android:id="@+id/radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:checkedButton="@id/fruit"
+            android:checkedButton="@id/radio_fruit"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/fruit"
+                android:id="@+id/radio_fruit"
                 android:layout_width="82dp"
                 android:layout_height="35dp"
                 android:background="@drawable/category_background_selector"
@@ -145,7 +144,7 @@
                 android:textSize="11dp" />
 
             <RadioButton
-                android:id="@+id/salt"
+                android:id="@+id/radio_sour"
                 android:layout_width="82dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="10dp"
@@ -153,7 +152,7 @@
                 android:button="@color/purple_500"
                 android:drawableLeft="@drawable/ic_salt"
                 android:fontFamily="@font/bungee"
-                android:paddingStart="12dp"
+                android:paddingStart="10dp"
                 android:text="@string/radio_btn2"
                 android:textAlignment="center"
                 android:textColor="@drawable/category_text_selector"
@@ -182,7 +181,6 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="12dp"
-        tools:listitem="@layout/product_templates"
-        android:layout_marginBottom="67dp"/>
+        tools:listitem="@layout/product_templates"/>
 
 </LinearLayout>
