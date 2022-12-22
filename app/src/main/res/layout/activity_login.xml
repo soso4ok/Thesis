@@ -19,19 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/allcyclic" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:fontFamily="@font/bungee_inline"
-        android:text="@string/Sing_In"
-        android:textColor="@color/old_rose"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
     <LinearLayout
         android:layout_width="297dp"
         android:layout_height="122dp"
@@ -41,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.024">
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
@@ -52,8 +39,8 @@
             android:drawablePadding="40px"
             android:fontFamily="@font/bungee_inline"
             android:hint="gmail"
-            android:maxLength="40"
             android:inputType="textEmailAddress"
+            android:maxLength="40"
             android:minHeight="48dp"
             android:paddingBottom="10px"
             android:textColor="@color/purple_500"
@@ -76,10 +63,10 @@
             android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="50px"
             android:ems="10"
-            android:maxLength="16"
             android:fontFamily="@font/bungee_inline"
             android:hint="password"
             android:inputType="textPassword"
+            android:maxLength="16"
             android:paddingLeft="18px"
             android:paddingBottom="0px"
             android:textColor="@color/purple_500"
@@ -95,6 +82,20 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/bungee_inline"
+        android:text="@string/Sing_In"
+        android:textColor="@color/old_rose"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="355dp"
@@ -105,7 +106,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.746"
+        app:layout_constraintVertical_bias="0.571"
         tools:ignore="MissingConstraints">
 
         <Button

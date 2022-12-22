@@ -1,11 +1,13 @@
 package com.example.thesis.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,9 +37,7 @@ public class HomeFragment extends Fragment {
     private String[] drinkPrice;
     private RecyclerView recyclerView;
     private BottomNavigationView navBar;
-    private RadioGroup radioGroup;
-    private RadioButton radioBtn1;
-    private RadioButton radioBtn2;
+
 
 
     @Nullable
@@ -45,20 +45,18 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
+
+
         //Slider
         ViewPager2 viewPager2 = view.findViewById(R.id.viewPagerImageSlider);
         List<SliderItem> sliderItems = new ArrayList<>();
             sliderItems.add(new SliderItem(R.drawable.group_slider));
             sliderItems.add(new SliderItem(R.drawable.group_slider2));
 
-
             viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
             viewPager2.setOffscreenPageLimit(2);
             viewPager2.setClipToPadding(false);
             viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
-
-        radioBtn1 = view.findViewById(R.id.radio_fruit);
-        radioBtn2 = view.findViewById(R.id.radio_sour);
 
 
         return view;
@@ -67,6 +65,11 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+      //  radioGroup = view.findViewById(R.id.radio_group);
+//        radioBtn1 = view.findViewById(R.id.radio_fruit);
+//        radioBtn2 = view.findViewById(R.id.radio_sour);
+
 
         dataInitialize();
 
@@ -84,6 +87,9 @@ public class HomeFragment extends Fragment {
         recyclerView.setOnTouchListener(new TranslateAnimationUtil(super.getContext(), navBar));
             ListAdapter listAdapter = new ListAdapter(getContext(), drinkArrayList);
         recyclerView.setAdapter(listAdapter);
+
+        //
+
         listAdapter.notifyDataSetChanged();
     }
 
@@ -129,4 +135,6 @@ public class HomeFragment extends Fragment {
         }
 
     }
+
+
 }

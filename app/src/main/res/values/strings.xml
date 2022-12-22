@@ -8,15 +8,17 @@
     <string name="radio_btn2">SOUR</string>
     <string name="search">SEARCH</string>
     <string name="bubbleTeaFirst">PEAR DELIGHT</string>
-    <string name="FirstPrice">$10</string>
+    <string name="FirstPrice">$5</string>
     <string name="bubbleTeaSecond">PARADASE BEACH</string>
-    <string name="SecondPrice">$8</string>
+    <string name="SecondPrice">$3</string>
     <string name="bubbleTeaThird">KIWI BOMB</string>
-    <string name="ThirdPrice">$7</string>
+    <string name="ThirdPrice">$4</string>
     <string name="bubbleTeaFifth">COTTON CANDY</string>
-    <string name="FourthPrice">$9</string>
+    <string name="FourthPrice">$5</string>
     <string name="bubbleTeaFourth">MILKY WAY</string>
-    <string name="FifthPrice">$12</string>
+    <string name="FifthPrice">$3</string>
 
     <string name="Lorem">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
