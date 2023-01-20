@@ -39,25 +39,25 @@ public class HomeFragment extends Fragment {
     private BottomNavigationView navBar;
 
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Initialize view
+        View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
-
-        //Slider
         ViewPager2 viewPager2 = view.findViewById(R.id.viewPagerImageSlider);
+
+        //Create slicer for View Pager and add t
         List<SliderItem> sliderItems = new ArrayList<>();
             sliderItems.add(new SliderItem(R.drawable.group_slider));
             sliderItems.add(new SliderItem(R.drawable.group_slider2));
 
+        //Add specification of characteristics for View Pageer
             viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
             viewPager2.setOffscreenPageLimit(2);
             viewPager2.setClipToPadding(false);
             viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
-
 
         return view;
     }
@@ -66,29 +66,27 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-      //  radioGroup = view.findViewById(R.id.radio_group);
-//        radioBtn1 = view.findViewById(R.id.radio_fruit);
-//        radioBtn2 = view.findViewById(R.id.radio_sour);
-
-
+        //Call method with data drinks to RecyclerView
         dataInitialize();
 
+        //Before loading
         recyclerView = view.findViewById(R.id.drink_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        navBar = getActivity().findViewById(R.id.botton_menu);
 
+        //Set RecyclerView
         RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(getContext()) {
             @Override protected int getVerticalSnapPreference() {
                 return LinearSmoothScroller.SNAP_TO_START;
             }
         };
         smoothScroller.setTargetPosition(0);
+
+        //Implement a OnTouchListener method to animate the bottom menu
+        navBar = getActivity().findViewById(R.id.botton_menu);
         recyclerView.setOnTouchListener(new TranslateAnimationUtil(super.getContext(), navBar));
             ListAdapter listAdapter = new ListAdapter(getContext(), drinkArrayList);
         recyclerView.setAdapter(listAdapter);
-
-        //
 
         listAdapter.notifyDataSetChanged();
     }
@@ -102,7 +100,6 @@ public class HomeFragment extends Fragment {
                 getString(R.string.bubbleTeaSecond),
                 getString(R.string.bubbleTeaThird),
                 getString(R.string.bubbleTeaFourth),
-
         };
 
         imageResorseID = new int[] {
@@ -129,12 +126,10 @@ public class HomeFragment extends Fragment {
                 getString(R.string.FifthPrice),
         };
 
+        //Go through all the elements
         for(int i = 0; i < drinkTitle.length; i++) {
             DrinkModel drinkModel = new DrinkModel(drinkTitle[i], drinkText[i], imageResorseID[i], drinkPrice[i]);
             drinkArrayList.add(drinkModel);
         }
-
     }
-
-
 }
