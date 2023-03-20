@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "972333914314",
+    "firebase_url": "https://thesis-53800-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "thesis-53800",
+    "storage_bucket": "thesis-53800.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972333914314:android:530b5ec1787d308d93bc33",
+        "android_client_info": {
+          "package_name": "com.example.thesis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972333914314-nje5grim21lehspdt5vtf0ttc2nbnn8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAO1VENCAjstw28dlTcvcXy_D3JoMbktQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972333914314-nje5grim21lehspdt5vtf0ttc2nbnn8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

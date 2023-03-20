@@ -50,14 +50,14 @@ public class HomeFragment extends Fragment {
 
         //Create slicer for View Pager and add t
         List<SliderItem> sliderItems = new ArrayList<>();
-            sliderItems.add(new SliderItem(R.drawable.group_slider));
-            sliderItems.add(new SliderItem(R.drawable.group_slider2));
+            sliderItems.add(new SliderItem(R.drawable.promotion_first));
+            sliderItems.add(new SliderItem(R.drawable.promotion_first));
 
         //Add specification of characteristics for View Pageer
             viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
             viewPager2.setOffscreenPageLimit(2);
             viewPager2.setClipToPadding(false);
-            viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+            viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.SCROLL_CAPTURE_HINT_AUTO);
 
         return view;
     }

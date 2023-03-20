@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        radioGroup = findViewById(R.id.radio_group);
+        //radioGroup = findViewById(R.id.radio_group);
 
         replaceFragment(new HomeFragment());
 
@@ -82,18 +82,18 @@ public class MainActivity extends AppCompatActivity {
 
         boolean checked = ((RadioButton) view).isChecked();
 
-        switch (view.getId()) {
-            case R.id.radio_fruit:
-                if (checked) {
-                    onBackPressed();
-                }
-                break;
-            case R.id.radio_sour:
-                if (checked) {
-                    onBackPressed();
-                }
-                break;
-        }
+//        switch (view.getId()) {
+//            case R.id.radio_fruit:
+//                if (checked) {
+//                    onBackPressed();
+//                }
+//                break;
+//            case R.id.radio_sour:
+//                if (checked) {
+//                    onBackPressed();
+//                }
+//                break;
+//        }
     }
 
     public void onBackPressed() {

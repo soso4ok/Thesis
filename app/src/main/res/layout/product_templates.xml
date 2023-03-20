@@ -3,14 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="10dp"
-    android:layout_marginStart="10dp"
+    android:layout_marginHorizontal="20dp"
     android:layout_marginBottom="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:paddingTop="10dp"
+        android:layout_height="140dp"
+        android:paddingVertical="10dp"
         android:background="@drawable/design_template"
         android:orientation="horizontal">
 
@@ -18,7 +17,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/tamplate_img"
             android:layout_width="91dp"
-            android:layout_height="91dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="10dp"
             android:background="@drawable/design_tamplate_img"
             android:src="@drawable/bubbletea_pear_delight" />
@@ -38,7 +37,7 @@
                 android:layout_marginBottom="-5dp"
                 android:fontFamily="@font/bungee_inline"
                 android:includeFontPadding="false"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/new_color"
                 android:text="@string/bubbleTeaFirst"
                 android:textSize="20dp" />
 

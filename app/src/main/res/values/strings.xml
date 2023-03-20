@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Thesis</string>
-    <string name="Login">Log In</string>
-    <string name="Sing_Up">Sing Up</string>
+    <string name="app_name">HEIL</string>
+
+    <string name="Login">Log in</string>
+    <string name="register">Register</string>
     <string name="Sing_In">Login</string>
+
     <string name="promotions">PROMOTIONS</string>
-    <string name="radio_btn1">Fruit</string>
-    <string name="radio_btn2">SOUR</string>
-    <string name="search">SEARCH</string>
+
     <string name="bubbleTeaFirst">PEAR DELIGHT</string>
     <string name="FirstPrice">$5</string>
     <string name="bubbleTeaSecond">PARADASE BEACH</string>

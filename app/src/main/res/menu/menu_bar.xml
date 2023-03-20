@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <item
         android:id="@+id/home_plane"
         android:icon="@drawable/ic_home"
-        android:title="none" />
+        android:title="Drinks" />
 
     <item
         android:id="@+id/qr_code_plane"
         android:icon="@drawable/ic_qr_code"
-        android:title="none"
-        android:iconTint="@color/background_tem"
-        />
+        android:title="Referral" />
 
     <item
         android:id="@+id/locate_plane"
         android:icon="@drawable/ic_locate"
-        android:title="none" />
+        android:title="Locations" />
 
     <item
         android:id="@+id/user_plane"
         android:icon="@drawable/ic_user"
-        android:title="none" />
-
+        android:title="Profile" />
 
 </menu>

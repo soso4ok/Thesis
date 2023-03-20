@@ -17,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thesis.DrinkActivity;
-import com.example.thesis.MainActivity;
 import com.example.thesis.R;
 
 import java.util.ArrayList;
@@ -29,7 +28,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
    Context context;
    ArrayList<DrinkModel> drinkModelArrayList;
-   Fragment fragment;
    Intent intent;
 
    public ListAdapter(Context context, ArrayList<DrinkModel> drinkModelArrayList) {
@@ -68,10 +66,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
                   intent.putExtra("IMAGE", drinkModel.getImageID());
                   appCompatActivity.setResult(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
                   context.startActivity(intent);
-
-               //                  fragment = new PeardelightFragment();
-//                  appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
-//                  break;
 
          }
       });
