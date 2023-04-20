@@ -26,6 +26,7 @@
         app:itemIconSize="38dp"
         app:itemIconTint="@color/white"
         app:menu="@menu/menu_bar"
+        app:labelVisibilityMode="unlabeled"
         android:background="@drawable/menu_shape"/>
 
 </RelativeLayout>

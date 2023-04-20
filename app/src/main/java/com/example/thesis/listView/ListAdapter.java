@@ -16,69 +16,98 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.thesis.DrinkActivity;
 import com.example.thesis.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
-
 
    public static final int res = 1;
 
    Context context;
-   ArrayList<DrinkModel> drinkModelArrayList;
-   Intent intent;
+   List<DrinkModel> list;
+   private ItemClickListener mClickListener;
 
-   public ListAdapter(Context context, ArrayList<DrinkModel> drinkModelArrayList) {
+   public ListAdapter(Context context, List<DrinkModel> list) {
       this.context = context;
-      this.drinkModelArrayList = drinkModelArrayList;
+      this.list = list;
    }
 
    @NonNull
    @Override
    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-      View v = LayoutInflater.from(context).inflate(R.layout.product_templates, parent, false);
+      //or context
+      View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_templates, parent, false);
       return new MyViewHolder(v);
    }
+
 
    @Override
    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-      final  DrinkModel drinkModel = drinkModelArrayList.get(position);
+      final DrinkModel drinkModel = list.get(position);
 
-
-      holder.tamplateImg.setImageResource(drinkModel.getImageID());
+      //holder.tamplateImg.setImageResource(drinkModel.getImageID());
       holder.Title.setText(drinkModel.getName());
       holder.Text.setText(drinkModel.getText());
-      holder.Price.setText(drinkModel.getPrice());
+      holder.Price.setText(String.format("$%d", drinkModel.getPrice()));
 
-
-      holder.itemView.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-            AppCompatActivity appCompatActivity = (AppCompatActivity)view.getContext();
-
-                  intent = new Intent(context, new DrinkActivity().getClass());
-                  intent.putExtra("TITLE", drinkModel.getName().toString());
-                  intent.putExtra("PRICE", drinkModel.getPrice().toString());
-                  intent.putExtra("TEXT", drinkModel.getText().toString());
-                  intent.putExtra("IMAGE", drinkModel.getImageID());
-                  appCompatActivity.setResult(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                  context.startActivity(intent);
-
-         }
-      });
-
+      Glide.with(holder.tamplateImg.getContext())
+              .load(list.get(position).getImageURL())
+              .placeholder(com.firebase.ui.auth.R.drawable.common_full_open_on_phone)
+              .error(com.firebase.ui.auth.R.drawable.common_full_open_on_phone)
+              .into(holder.tamplateImg);
    }
-
 
    @Override
    public int getItemCount() {
-      return drinkModelArrayList.size();
+      if (list == null) {
+         return 0;
+      } else {
+         return list.size();
+      }
    }
 
-   public static class MyViewHolder extends RecyclerView.ViewHolder {
+//RecyclerView.ViewHolder implements View.OnClickListener
+   public class MyViewHolder extends RecyclerView.ViewHolder {
+
+      ImageView tamplateImg;
+      TextView Title;
+      TextView Text;
+      TextView Price;
+
+      MyViewHolder(View itemView) {
+
+         super(itemView);
+
+         tamplateImg = itemView.findViewById(R.id.tamplate_img);
+         Title = itemView.findViewById(R.id.title);
+         Text = itemView.findViewById(R.id.text);
+         Price = itemView.findViewById(R.id.price);
+
+         //itemView.setOnClickListener(this);
+      }
+
+//      @Override
+//      public void onClick(View view) {
+//         if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+//      }
+   }
+
+   void setClickListener(ItemClickListener itemClickListener) {
+      this.mClickListener = itemClickListener;
+   }
+
+   public interface ItemClickListener {
+      void onItemClick(View view, int position);
+   }
+
+
+
+   /*public static class MyViewHolder extends RecyclerView.ViewHolder {
       ImageView tamplateImg;
       TextView Title;
       TextView Text;
@@ -92,5 +121,5 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
           Price = itemView.findViewById(R.id.price);
 
       }
-   }
+   }*/
 }

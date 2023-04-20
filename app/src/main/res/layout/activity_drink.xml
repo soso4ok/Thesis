@@ -65,7 +65,7 @@
                     android:id="@+id/image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/bubbletea_pear_delight" />
+                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark_normal" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
         </RelativeLayout>
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/Lorem"
+                android:text="@string/app_name"
                 android:textColor="@color/old_rose"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -155,7 +155,7 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/btn_added"
+                android:id="@+id/btn_add_drink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#0000"
@@ -167,11 +167,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="6dp"
-                android:includeFontPadding="false"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="10dp"
                 android:fontFamily="@font/bungee_inline"
-                android:text="$0"
+                android:includeFontPadding="false"
+                android:text="100"
                 android:textColor="@color/white"
                 android:textSize="24sp" />
         </FrameLayout>

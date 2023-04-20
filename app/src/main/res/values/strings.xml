@@ -5,20 +5,6 @@
     <string name="register">Register</string>
     <string name="Sing_In">Login</string>
 
-    <string name="promotions">PROMOTIONS</string>
-
-    <string name="bubbleTeaFirst">PEAR DELIGHT</string>
-    <string name="FirstPrice">$5</string>
-    <string name="bubbleTeaSecond">PARADASE BEACH</string>
-    <string name="SecondPrice">$3</string>
-    <string name="bubbleTeaThird">KIWI BOMB</string>
-    <string name="ThirdPrice">$4</string>
-    <string name="bubbleTeaFifth">COTTON CANDY</string>
-    <string name="FourthPrice">$5</string>
-    <string name="bubbleTeaFourth">MILKY WAY</string>
-    <string name="FifthPrice">$3</string>
-
-    <string name="Lorem">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit…</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="promotions">NEWS</string>
+    <string name="shopping_cart">shopping cart</string>
 </resources>

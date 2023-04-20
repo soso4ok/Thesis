@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
             android:background="@drawable/design_tamplate_img"
-            android:src="@drawable/bubbletea_pear_delight" />
+            android:src="@drawable/common_google_signin_btn_icon_dark_normal" />
 
 
         <LinearLayout
@@ -38,14 +38,14 @@
                 android:fontFamily="@font/bungee_inline"
                 android:includeFontPadding="false"
                 android:textColor="@color/new_color"
-                android:text="@string/bubbleTeaFirst"
+                android:text="@string/fui_name_hint"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/text"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:text="@string/Lorem"
+                android:text="@string/fui_name_hint"
                 android:textSize="11dp" />
 
         </LinearLayout>
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bungee_inline"
                 android:textColor="@color/white"
-                android:text="@string/FirstPrice"
+                android:text="@string/fui_name_hint"
                 android:layout_marginTop="10dp"
                 android:includeFontPadding="false"
                 android:textSize="20dp" />
