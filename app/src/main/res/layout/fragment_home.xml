@@ -1,78 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:id="@+id/mainid"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-
-    <FrameLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="95dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/logo" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="51dp"
-            android:layout_height="48dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="50px"
-            android:layout_marginRight="50px"
-            app:srcCompat="@drawable/shop_cart" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="51dp"
-            android:layout_height="48dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="50px"
-            android:layout_marginRight="300px"
-            app:srcCompat="@drawable/shop_cart" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/bungeespice_regular"
-            android:text="@string/promotions"
-            android:textColor="@color/old_rose"
-            android:textSize="36sp" />
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/mainid" android:background="@color/white" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:id="@+id/header" android:layout_width="match_parent" android:layout_height="140dp">
+        <ImageView android:id="@+id/imageView4" android:layout_width="95dp" android:layout_height="60dp" android:layout_marginTop="15dp" app:srcCompat="@drawable/logo"/>
+        <ImageButton android:layout_gravity="end" android:id="@+id/cart_button" android:layout_width="51dp" android:layout_height="48dp" android:layout_marginTop="50px" android:layout_marginRight="50px" app:srcCompat="@drawable/shop_cart"/>
+        <ImageView android:layout_gravity="end" android:id="@+id/imageView2" android:layout_width="51dp" android:layout_height="48dp" android:layout_marginTop="50px" android:layout_marginRight="300px" app:srcCompat="@drawable/shop_cart"/>
+        <TextView android:textSize="36sp" android:textColor="@color/old_rose" android:layout_gravity="bottom" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/promotions" android:fontFamily="@font/bungeespice_regular" android:layout_marginStart="20dp"/>
     </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/slider"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/header"
-            android:background="@color/white">
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPagerImageSlider"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"/>
+    <FrameLayout android:id="@+id/slider" android:background="@color/white" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/header">
+        <androidx.viewpager2.widget.ViewPager2 android:id="@+id/viewPagerImageSlider" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
     </FrameLayout>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/drink_list"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="12dp"
-        tools:listitem="@layout/product_templates"/>
-
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/drink_list" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="12dp"/>
 </LinearLayout>

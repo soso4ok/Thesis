@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp" android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_width="match_parent" android:orientation="vertical"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:background="@drawable/design_template"
+        android:layout_height="140dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:background="@drawable/design_tamplate_img"
+            android:id="@+id/tamplate_img"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_width="91dp"
+            android:src="@drawable/common_google_signin_btn_icon_dark_normal"/>
+        <LinearLayout android:layout_height="124dp"
+            android:layout_toEndOf="@+id/tamplate_img"
+            android:layout_width="wrap_content"
+            android:orientation="vertical">
+            <TextView android:fontFamily="@font/bungee_inline"
+                android:id="@+id/title"
+                android:includeFontPadding="false"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_width="174dp"
+                android:text="@string/fui_name_hint"
+                android:textColor="@color/new_color"
+                android:textSize="24sp"/>
+            <TextView android:fontFamily="@font/bungee_inline"
+                android:gravity="bottom"
+                android:id="@+id/updated_price_text"
+                android:includeFontPadding="false"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="43dp"
+                android:layout_width="wrap_content"
+                android:text="@string/total"
+                android:textColor="@color/white" android:textSize="24sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/counter_cart"
+            android:foregroundGravity="center_vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_height="46dp"
+            android:layout_marginBottom="13dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="71dp" android:layout_width="127dp" android:orientation="horizontal">
+            <ImageButton android:id="@+id/minus_button"
+                android:layout_gravity="center"
+                android:layout_height="30dp" android:layout_margin="5dp"
+                android:layout_width="30dp" app:srcCompat="@drawable/minus"/>
+            <TextView android:fontFamily="@font/bungee_inline"
+                android:id="@+id/count_text"
+                android:includeFontPadding="false"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" android:text="0" android:textSize="23sp"/>
+            <ImageButton android:id="@+id/plus_button"
+                android:layout_gravity="center"
+                android:layout_height="30dp" android:layout_margin="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="30dp" app:srcCompat="@drawable/plus"/>
+        </LinearLayout>
+        <ImageButton android:id="@+id/delete_button"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_height="46dp"
+            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="14dp"
+            android:layout_width="wrap_content" app:srcCompat="@android:drawable/ic_menu_delete"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -4,10 +4,12 @@
     <color name="background">#FFF4EC</color>
     <color name="main_orange">#F4CFB1</color>
     <color name="background_tem">#E7CFBC</color>
+    <color name="hint">#F0DADA</color>
 
     <color name="new_color">#A75050</color>
     <color name="logreg">#C5A084</color>
     <color name="old_rose">#CC8080</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#966B9D</color>
     <color name="purple_700">#FFA46A</color>

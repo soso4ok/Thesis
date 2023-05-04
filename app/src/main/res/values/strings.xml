@@ -5,6 +5,9 @@
     <string name="register">Register</string>
     <string name="Sing_In">Login</string>
 
+    <string name="total">TOTAL:</string>
+    <string name="buy">buy</string>
+
     <string name="promotions">NEWS</string>
     <string name="shopping_cart">shopping cart</string>
 </resources>

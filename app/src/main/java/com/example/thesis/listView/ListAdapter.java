@@ -3,8 +3,6 @@ package com.example.thesis.listView;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,24 +10,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.thesis.DrinkActivity;
 import com.example.thesis.R;
+import com.example.thesis.modules.DrinkModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
    public static final int res = 1;
+   public OnItemClickListener mListener;
 
-   Context context;
-   List<DrinkModel> list;
-   private ItemClickListener mClickListener;
+   private Context context;
+   private List<DrinkModel> list;
+
 
    public ListAdapter(Context context, List<DrinkModel> list) {
       this.context = context;
@@ -39,7 +35,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
    @NonNull
    @Override
    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-      //or context
       View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_templates, parent, false);
       return new MyViewHolder(v);
    }
@@ -50,7 +45,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
       final DrinkModel drinkModel = list.get(position);
 
-      //holder.tamplateImg.setImageResource(drinkModel.getImageID());
       holder.Title.setText(drinkModel.getName());
       holder.Text.setText(drinkModel.getText());
       holder.Price.setText(String.format("$%d", drinkModel.getPrice()));
@@ -60,6 +54,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
               .placeholder(com.firebase.ui.auth.R.drawable.common_full_open_on_phone)
               .error(com.firebase.ui.auth.R.drawable.common_full_open_on_phone)
               .into(holder.tamplateImg);
+
+//      holder.itemView.setOnClickListener(new View.OnClickListener() {
+//         @Override
+//         public void onClick(View view) {
+//            mListener.onItemClick(drinkModel);
+//         }
+//      });
    }
 
    @Override
@@ -70,8 +71,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
          return list.size();
       }
    }
-
-//RecyclerView.ViewHolder implements View.OnClickListener
+//implements View.OnClickListener
    public class MyViewHolder extends RecyclerView.ViewHolder {
 
       ImageView tamplateImg;
@@ -86,40 +86,21 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
          tamplateImg = itemView.findViewById(R.id.tamplate_img);
          Title = itemView.findViewById(R.id.title);
          Text = itemView.findViewById(R.id.text);
-         Price = itemView.findViewById(R.id.price);
+         Price = itemView.findViewById(R.id.updated_price_text);
 
-         //itemView.setOnClickListener(this);
       }
 
 //      @Override
-//      public void onClick(View view) {
-//         if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+//      public void onClick(View v) {
+//         int position = getAdapterPosition();
+//         if (position != RecyclerView.NO_POSITION) {
+//            DrinkModel drinkModel = mListener.get(position);
+//            mListener.onItemClick(drinkModel); // <-- Call the listener
+//         }
 //      }
    }
 
-   void setClickListener(ItemClickListener itemClickListener) {
-      this.mClickListener = itemClickListener;
+   public interface OnItemClickListener {
+      void onItemClick(DrinkModel drinkModel);
    }
-
-   public interface ItemClickListener {
-      void onItemClick(View view, int position);
-   }
-
-
-
-   /*public static class MyViewHolder extends RecyclerView.ViewHolder {
-      ImageView tamplateImg;
-      TextView Title;
-      TextView Text;
-      TextView Price;
-
-      public MyViewHolder(@NonNull View itemView) {
-         super(itemView);
-         tamplateImg = itemView.findViewById(R.id.tamplate_img);
-         Title = itemView.findViewById(R.id.title);
-         Text = itemView.findViewById(R.id.text);
-          Price = itemView.findViewById(R.id.price);
-
-      }
-   }*/
 }
