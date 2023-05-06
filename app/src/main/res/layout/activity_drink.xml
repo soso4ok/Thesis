@@ -1,133 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@drawable/drinks_background" android:layout_width="match_parent" android:layout_height="match_parent">
-    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <FrameLayout android:orientation="horizontal" android:id="@+id/header_drink" android:layout_width="match_parent" android:layout_height="97dp">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="50dp"
+            android:layout_height="62dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:background="#0000"
+            app:srcCompat="@drawable/button_back" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="4dp">
 
             <ImageButton
-                android:id="@+id/back_button"
-                android:background="#0000"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:layout_margin="15dp" app:srcCompat="@drawable/back_btn"/>
-
-            <ImageView
-                android:layout_gravity="center"
-                android:id="@+id/imageView3"
-                android:layout_width="77dp"
-                android:layout_height="73dp" app:srcCompat="@drawable/logo"/>
+                android:id="@+id/recent_purchases_button"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/cart_button"
+                app:srcCompat="@drawable/recent_purchases" />
 
             <ImageButton
                 android:id="@+id/cart_button"
-                android:layout_gravity="end"
-                android:background="#0000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                app:srcCompat="@drawable/shop_cart"/>
+                android:padding="0dp"
+                app:srcCompat="@drawable/shop_cart" />
+        </LinearLayout>
+    </RelativeLayout>
 
-        </FrameLayout>
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginStart="70dp"
-            app:srcCompat="@drawable/common_google_signin_btn_icon_dark_normal"/>
-
-    </LinearLayout>
-    <FrameLayout
-        android:layout_gravity="center"
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_below="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp">
+        android:layout_marginTop="10dp">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginHorizontal="40dp"
+            app:srcCompat="@drawable/common_google_signin_btn_icon_dark_normal"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_below="@+id/image"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-            <TextView
-                android:textSize="20sp"
-                android:textColor="@color/purple_500"
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="title"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/bungee_shade"/>
+            android:layout_marginHorizontal="45dp"
+            android:textColor="@color/purple_500"
+            android:text="PEAR DELIGHT"
+            android:textSize="28sp"
+            android:fontFamily="@font/bungeespice_regular"/>
 
-            <TextView
-                android:textSize="12sp"
-                android:textColor="@color/old_rose"
-                android:id="@+id/text"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp" android:text="@string/app_name" android:layout_marginStart="10dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_gravity="end"
-            android:orientation="vertical"
-            android:background="@drawable/counter"
-            android:layout_width="40dp"
+        <TextView
+            android:id="@+id/text"
+            android:layout_below="@id/title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-            <ImageButton
-                android:layout_gravity="center"
-                android:id="@+id/minus_button"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="5dp"
-                app:srcCompat="@drawable/minus"/>
-            <TextView
-                android:textSize="23sp"
-                android:layout_gravity="center"
-                android:id="@+id/count_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/bungee_inline"/>
-            <ImageButton
-                android:layout_gravity="center"
-                android:id="@+id/plus_button"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="5dp"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/plus"/>
-        </LinearLayout>
-    </FrameLayout>
+            android:layout_marginHorizontal="45dp"
+            android:paddingEnd="30dp"
+            android:textSize="12sp"
+            android:textColor="@color/old_rose" />
+
+    </RelativeLayout>
+
+
+
     <RelativeLayout
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <FrameLayout
-            android:orientation="horizontal"
+        android:id="@+id/add_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/add_drink_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
-            <ImageButton
-                android:layout_gravity="center"
-                android:id="@+id/add_drink_button"
-                android:background="#0000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/add_btn"/>
+            android:background="@drawable/button_add_product"
+            />
+
+        <LinearLayout
+            android:layout_toRightOf="@id/add_drink_button"
+            android:layout_width="90dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="10dp"
+            android:enabled="false"
+            android:gravity="center"
+            android:background="@drawable/design_price_tamplate"
+            >
+
             <TextView
-                android:textSize="24sp"
-                android:textColor="@color/white"
-                android:layout_gravity="end"
                 android:id="@+id/updated_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:text="100"
-                android:includeFontPadding="false"
+                android:gravity="center"
                 android:fontFamily="@font/bungee_inline"
-                android:layout_marginEnd="10dp"/>
-        </FrameLayout>
+                android:text="100"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
     </RelativeLayout>
-</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="50dp"
+        android:layout_height="145dp"
+        android:layout_above="@+id/add_area"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/counter">
+
+        <ImageButton
+            android:id="@+id/minus_button"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="13dp"
+            android:background="@color/transment"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/minus" />
+
+        <TextView
+            android:id="@+id/count_text"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_above="@+id/minus_button"
+            android:layout_below="@+id/plus_button"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/bungee_inline"
+            android:includeFontPadding="false"
+            android:paddingEnd="-10dp"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="26sp" />
+
+        <ImageButton
+            android:id="@+id/plus_button"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transment"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/plus" />
+    </RelativeLayout>
+
+</RelativeLayout>

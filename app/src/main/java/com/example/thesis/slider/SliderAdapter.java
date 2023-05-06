@@ -9,16 +9,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.thesis.R;
+import com.example.thesis.modules.SliderModel;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.List;
 
 public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder> {
 
-    private List<SliderItem> sliderItemList;
+    private List<SliderModel> sliderItemList;
     private ViewPager2 viewPager2;
 
-    public SliderAdapter(List<SliderItem> sliderItemList, ViewPager2 viewPager2) {
+    public SliderAdapter(List<SliderModel> sliderItemList, ViewPager2 viewPager2) {
         this.sliderItemList = sliderItemList;
         this.viewPager2 = viewPager2;
     }
@@ -38,9 +39,6 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
     @Override
     public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
         holder.setImage(sliderItemList.get(position));
-        if (position == sliderItemList.size() - 2) {
-            viewPager2.post(runnable);
-        }
     }
 
     @Override
@@ -57,7 +55,7 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
             imageView= itemView.findViewById(R.id.imageSlide);
         }
 
-        void setImage(SliderItem sliderItem) {
+        void setImage(SliderModel sliderItem) {
             imageView.setImageResource(sliderItem.getImage());
         }
 

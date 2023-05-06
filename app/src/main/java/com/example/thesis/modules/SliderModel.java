@@ -1,10 +1,10 @@
-package com.example.thesis.slider;
+package com.example.thesis.modules;
 
-public class SliderItem {
+public class SliderModel {
 
     private int image;
 
-    public SliderItem(int image) {
+    public SliderModel(int image) {
         this.image = image;
     }
 

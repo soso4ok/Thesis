@@ -1,6 +1,7 @@
 package com.example.thesis;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,26 +58,32 @@ public class CartShopActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new CartListAdapter.OnItemClickListener() {
             @Override
             public void onDecreaseClick(int position) {
-                DrinkModel model = mAdapter.getItem(position);
-                int count = model.getCount();
+                ImageButton imageView = findViewById(R.id.minus_button); // replace with your ImageView ID
+                Drawable newDrawable = getResources().getDrawable(R.drawable.trash); // replace "delete" with the name of your new drawable XML file
+                DrinkModel current_item = mAdapter.getItem(position);
+                int count = current_item.getCount();
                 if (count > 1) {
                     count--;
-                    model.setCount(count);
+                    current_item.setCount(count);
                     mAdapter.notifyItemChanged(position);
+                } else if (count == 1) {
+                    imageView.setImageDrawable(newDrawable);
+                    mAdapter.deleteData(position, getApplicationContext());
                 }
             }
 
             @Override
             public void onIncreaseClick(int position) {
-                DrinkModel model = mAdapter.getItem(position);
-                int count = model.getCount();
-                if (count < 10) {
+                DrinkModel current_item = mAdapter.getItem(position);
+                int count = current_item.getCount();
+                if (count < 9) {
                     count++;
-                    model.setCount(count);
+                    current_item.setCount(count);
                     mAdapter.notifyItemChanged(position);
                     // Update total price or any other logic here
                 }
             }
         });
+
     }
 }

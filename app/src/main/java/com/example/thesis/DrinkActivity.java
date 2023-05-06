@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -53,6 +54,7 @@ public class DrinkActivity extends AppCompatActivity {
 
         updatedPriceText = findViewById(R.id.updated_price_text);
         countText = findViewById(R.id.count_text);
+
 
         model = (DrinkModel) getIntent().getSerializableExtra("drinkModel");
         if (model != null) {
@@ -117,7 +119,7 @@ public class DrinkActivity extends AppCompatActivity {
 
     public void updatePlusPrice(View view) {
         int i = mCount;
-        if (i < 10) {
+        if (i < 9) {
             mCount = i + 1;
             updatedPrice += model.getPrice();
             countText.setText(String.valueOf(mCount));

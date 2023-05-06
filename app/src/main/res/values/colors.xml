@@ -9,6 +9,8 @@
     <color name="new_color">#A75050</color>
     <color name="logreg">#C5A084</color>
     <color name="old_rose">#CC8080</color>
+    <color name="price_color">#F2B880</color>
+
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#966B9D</color>

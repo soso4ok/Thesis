@@ -20,8 +20,9 @@ import com.example.thesis.R;
 import com.example.thesis.listView.HomeListAdapter;
 import com.example.thesis.listView.TranslateAnimationUtil;
 import com.example.thesis.modules.DrinkModel;
+import com.example.thesis.slider.MarginPageTransformer;
 import com.example.thesis.slider.SliderAdapter;
-import com.example.thesis.slider.SliderItem;
+import com.example.thesis.modules.SliderModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +33,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-/* loaded from: C:\Users\nxdgb\OneDrive\Рабочий стол\base_source_from_JADX\resources\classes6.dex */
 public class HomeFragment extends Fragment implements HomeListAdapter.OnItemClickListener {
     private static List<DrinkModel> drinkArrayList;
     private ImageButton shopCartButton;
@@ -46,12 +46,16 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnItemClic
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        List<SliderItem> sliderItems = new ArrayList<>();
+        List<SliderModel> sliderItems = new ArrayList<>();
 
-        sliderItems.add(new SliderItem(R.drawable.promotion_first));
-        sliderItems.add(new SliderItem(R.drawable.promotion_first));
+        sliderItems.add(new SliderModel(R.drawable.promotion_first));
+        sliderItems.add(new SliderModel(R.drawable.promotion_second));
 
-        ViewPager2 viewPager2 = (ViewPager2) view.findViewById(R.id.viewPagerImageSlider);
+        float margin = getResources().getDimensionPixelSize(R.dimen.page_margin);
+        float horizontalMargin = getResources().getDimensionPixelSize(R.dimen.page_horizontal_margin);
+
+        ViewPager2 viewPager2 = view.findViewById(R.id.home_fragment_slider);
+        viewPager2.setPageTransformer(new MarginPageTransformer(margin, horizontalMargin));
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
         viewPager2.setOffscreenPageLimit(2);
         viewPager2.getChildAt(0).setOverScrollMode(0);
