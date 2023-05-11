@@ -1,11 +1,14 @@
 package com.example.thesis.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
+import com.example.thesis.CartShopActivity;
 import com.example.thesis.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -15,6 +18,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LocationFragment extends Fragment {
+    
+    private ImageButton shopCartButton;
 
     private GoogleMap mMap;
 
@@ -23,6 +28,16 @@ public class LocationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Initialize view
         View view = inflater.inflate(R.layout.fragment_location, container, false);
+
+        shopCartButton = view.findViewById(R.id.cart_button);
+
+        shopCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CartShopActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Initialize map fragment
         SupportMapFragment supportMapFragment=(SupportMapFragment)

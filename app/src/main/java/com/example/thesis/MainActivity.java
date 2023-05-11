@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -24,14 +25,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RadioGroup radioGroup;
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //radioGroup = findViewById(R.id.radio_group);
 
         replaceFragment(new HomeFragment());
 
@@ -78,23 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-    public void RadioButtonClick(View view) {
 
-        boolean checked = ((RadioButton) view).isChecked();
-
-//        switch (view.getId()) {
-//            case R.id.radio_fruit:
-//                if (checked) {
-//                    onBackPressed();
-//                }
-//                break;
-//            case R.id.radio_sour:
-//                if (checked) {
-//                    onBackPressed();
-//                }
-//                break;
-//        }
-    }
 
     public void onBackPressed() {
         moveTaskToBack(true);

@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="140dp"
         android:orientation="horizontal">
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -33,7 +33,7 @@
             android:fontFamily="@font/bungeespice_regular"
             android:includeFontPadding="false"
             android:text="@string/fui_name_hint"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/new_color"
             android:textSize="20dp" />
 
         <TextView
@@ -84,9 +84,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="14dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="12dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/bungee_inline"
                 android:includeFontPadding="false"
                 android:textColor="@color/white"
@@ -113,10 +113,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginTop="106dp"
             android:layout_marginEnd="13dp"
-            android:layout_marginBottom="8dp"
             android:layout_toStartOf="@+id/counter"
             android:background="@color/transment"
-            app:srcCompat="@android:drawable/ic_menu_delete" />
+            app:srcCompat="@android:drawable/ic_delete" />
 
     </RelativeLayout>
 </LinearLayout>

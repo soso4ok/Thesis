@@ -16,16 +16,16 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/botton_menu"
         android:layout_width="match_parent"
-        android:minHeight="@dimen/fui_wrapper_padding_horiz"
         android:paddingHorizontal="30dp"
         android:layout_marginBottom="15dp"
         android:layout_marginHorizontal="20dp"
         android:layout_height="200px"
         android:layout_alignParentBottom="true"
         app:itemTextColor="@color/white"
-        app:itemIconSize="38dp"
+        app:itemIconSize="34dp"
         app:itemIconTint="@color/white"
         app:menu="@menu/menu_bar"
+        app:itemBackground="@null"
         app:labelVisibilityMode="unlabeled"
         android:background="@drawable/menu_shape"/>
 

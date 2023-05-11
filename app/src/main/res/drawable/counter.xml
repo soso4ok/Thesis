@@ -4,7 +4,7 @@
         android:topLeftRadius="17dp"
         android:bottomLeftRadius="17dp"/>
 
-    <solid android:color="@color/price_color"/>
+    <solid android:color="@color/main_orange"/>
 
 <!--    <stroke-->
 <!--        android:width="3dp"-->

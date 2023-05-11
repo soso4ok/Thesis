@@ -53,9 +53,10 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/inter_regular"
                 android:maxLines="3"
+                android:lineSpacingExtra="0.1px"
                 android:text="@string/fui_name_hint"
                 android:textColor="@color/old_rose"
-                android:textSize="14dp" />
+                android:textSize="12dp" />
         </RelativeLayout>
 
         <LinearLayout

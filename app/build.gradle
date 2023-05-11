@@ -50,16 +50,13 @@ dependencies {
 
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
-    //For ListView
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
-
     //ViewPager2
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
     //RoundedImageView
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    //Map
+    // Dpendency for GoogleMap
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
     //library glide
@@ -71,7 +68,15 @@ dependencies {
     // Add the dependency for the Firebase SDK for Google Analytics
     implementation 'com.google.firebase:firebase-analytics'
 
+    // https://github.com/google/gson
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
+
+    // QR Code generator
+    implementation 'com.github.androidmads:QRGenerator:1.0.1'
+
+    // For encrypt and decrypt the data
+    implementation('com.journeyapps:zxing-android-embedded:4.3.0') { transitive = false }
+    implementation 'com.google.zxing:core:3.3.0'
 
 
 }

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,7 +32,7 @@ public class DrinkActivity extends AppCompatActivity {
     private DrinkModel model;
 
     //Variables
-    private int mCount = 0;
+    private int mCount = 1;
     private int updatedPrice = 0;
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -72,13 +71,13 @@ public class DrinkActivity extends AppCompatActivity {
         minusButton.setOnClickListener(new View.OnClickListener() { // from class: com.example.thesis.activities.DrinkActivity$$ExternalSyntheticLambda0
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                updateMinusPrice(view);
+                updateMinusPrice();
             }
         });
         plusButton.setOnClickListener(new View.OnClickListener() { // from class: com.example.thesis.activities.DrinkActivity$$ExternalSyntheticLambda1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                updatePlusPrice(view);
+                updatePlusPrice();
             }
         });
 
@@ -97,35 +96,48 @@ public class DrinkActivity extends AppCompatActivity {
             @Override // android.view.View.OnClickListener
             public void onClick(View v) {
                 Intent intent = new Intent(DrinkActivity.this, CartShopActivity.class);
-                String text = countText.getText().toString();
-                int value = Integer.parseInt(text);
-                model.setCount(value);
-                model.setPrice(updatedPrice);
+                String count = countText.getText().toString();
+                int countValue = Integer.parseInt(count);
+
+                // Update the model with the count and price
+                model.setCount(countValue);
+                int originalPrice = model.getPrice();
+                model.setPrice(updatedPrice );
+
+                // Pass the model and original price as extras to the intent
                 intent.putExtra("drinkModel", model);
+                intent.putExtra("originalPrice", originalPrice);
+
                 startActivity(intent);
+
             }
         });
     }
 
-    public void updateMinusPrice(View view) {
-        int i = mCount;
-        if (i > 1) {
-            mCount = i - 1;
-            updatedPrice -= model.getPrice();
+    public void updateMinusPrice() {
+        if (mCount > 1) {
+            mCount--;
             countText.setText(String.valueOf(mCount));
-            updatedPriceText.setText(String.format("$%d", Integer.valueOf(updatedPrice)));
+
+            // Update the price
+            int originalPrice = model.getPrice();
+            int updatedPrice = originalPrice * mCount;
+            updatedPriceText.setText(String.format("$%d", updatedPrice));
         }
     }
 
-    public void updatePlusPrice(View view) {
-        int i = mCount;
-        if (i < 9) {
-            mCount = i + 1;
-            updatedPrice += model.getPrice();
+    public void updatePlusPrice() {
+        if (mCount < 9) {
+            mCount++;
             countText.setText(String.valueOf(mCount));
-            updatedPriceText.setText(String.format("$%d", Integer.valueOf(updatedPrice)));
+
+            // Update the price
+            int originalPrice = model.getPrice();
+            int updatedPrice = originalPrice * mCount;
+            updatedPriceText.setText(String.format("$%d", updatedPrice));
         }
     }
+
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$onCreate$2$com-example-thesis-activities-DrinkActivity  reason: not valid java name */

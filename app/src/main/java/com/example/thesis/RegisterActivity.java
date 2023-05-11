@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    // Connerct Firebase
+    // Connect Firebase
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://thesis-53800-default-rtdb.europe-west1.firebasedatabase.app");
 
     private Button registerBtn;
@@ -79,9 +79,11 @@ public class RegisterActivity extends AppCompatActivity {
                             if (snapshot.hasChild(loginData)) {
                                 Toast.makeText(RegisterActivity.this, "User is alredy registered!", Toast.LENGTH_LONG).show();
                             } else {
-                                // Save the user's email and password in the Firebase Realtime Database and display a notification that the user has been successfully registered.
+                                // Save the user's email and password in the Firebase Realtime Database
+                                // and display a notification that the user has been successfully registered.
                                 databaseReference.child("users").child(loginData).child("emails").setValue(emailData);
                                 databaseReference.child("users").child(loginData).child("passwords").setValue(passwordData);
+                                databaseReference.child("users").child(loginData).child("points").setValue("0");
 
                                 Toast.makeText(RegisterActivity.this, "User registered successfully", Toast.LENGTH_LONG).show();
                                 finish();

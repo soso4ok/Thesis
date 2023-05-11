@@ -83,21 +83,15 @@ public class LoginActivity extends AppCompatActivity {
 
                             // Check if Email is exist in firebase database
                             if (snapshot.hasChild(userLoginData)) {
-
                                 final String getPassword = snapshot.child(userLoginData).child("passwords").getValue(String.class);
 
                                 if (getPassword.equals(userPasswordData)) {
                                     Toast.makeText(LoginActivity.this, "Successfully Logged in", Toast.LENGTH_LONG).show();
                                     openMainActivity();
                                     finish();
-                                } else {
-                                    Toast.makeText(LoginActivity.this, "Wrong password", Toast.LENGTH_LONG).show();
-                                }
-                            } else {
-                                Toast.makeText(LoginActivity.this, "Wrong password", Toast.LENGTH_LONG).show();
+                                } else { Toast.makeText(LoginActivity.this, "Wrong password", Toast.LENGTH_LONG).show(); }
                             }
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
@@ -116,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void openMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

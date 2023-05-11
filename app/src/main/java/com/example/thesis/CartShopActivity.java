@@ -36,6 +36,7 @@ public class CartShopActivity extends AppCompatActivity {
         rView = findViewById(R.id.recyclerView);
 
         DrinkModel model = (DrinkModel) getIntent().getSerializableExtra("drinkModel");
+        int originalPrice = getIntent().getIntExtra("drinkModel", 0);
 
         if (model == null) {
             mAdapter = new CartListAdapter(drinkArrayList, getApplicationContext());
@@ -58,16 +59,15 @@ public class CartShopActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new CartListAdapter.OnItemClickListener() {
             @Override
             public void onDecreaseClick(int position) {
-                ImageButton imageView = findViewById(R.id.minus_button); // replace with your ImageView ID
-                Drawable newDrawable = getResources().getDrawable(R.drawable.trash); // replace "delete" with the name of your new drawable XML file
                 DrinkModel current_item = mAdapter.getItem(position);
                 int count = current_item.getCount();
+
                 if (count > 1) {
                     count--;
                     current_item.setCount(count);
+                    current_item.setPrice(current_item.getPrice() - originalPrice);
                     mAdapter.notifyItemChanged(position);
                 } else if (count == 1) {
-                    imageView.setImageDrawable(newDrawable);
                     mAdapter.deleteData(position, getApplicationContext());
                 }
             }
@@ -76,14 +76,19 @@ public class CartShopActivity extends AppCompatActivity {
             public void onIncreaseClick(int position) {
                 DrinkModel current_item = mAdapter.getItem(position);
                 int count = current_item.getCount();
+                int curPrice = current_item.getPrice();
+
                 if (count < 9) {
                     count++;
                     current_item.setCount(count);
+
+                    current_item.setPrice(curPrice);
                     mAdapter.notifyItemChanged(position);
                     // Update total price or any other logic here
                 }
             }
         });
+
 
     }
 }
