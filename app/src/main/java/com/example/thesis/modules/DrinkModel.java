@@ -9,13 +9,15 @@ public class DrinkModel implements Serializable {
     private String imageURL;
     private String name;
     private int price;
+    private int savedOriginalPrice;
     private String text;
 
-    public DrinkModel(int id, String name, String text, int price, String imageURL, int count) {
+    public DrinkModel(int id, String name, String text, int price, int savedOriginalPrice, String imageURL, int count) {
         this.id = id;
         this.name = name;
         this.text = text;
         this.price = price;
+        this.savedOriginalPrice = savedOriginalPrice;
         this.imageURL = imageURL;
         this.count = count;
     }
@@ -69,5 +71,13 @@ public class DrinkModel implements Serializable {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public int getSavedOriginalPrice() {
+        return savedOriginalPrice;
+    }
+
+    public void setSavedOriginalPrice(int savedOriginalPrice) {
+        this.savedOriginalPrice = savedOriginalPrice;
     }
 }

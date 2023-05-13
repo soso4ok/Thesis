@@ -104,7 +104,6 @@
                 android:fontFamily="@font/bungeespice_regular"
                 android:gravity="center"
                 android:textColor="@color/purple_500"
-                android:text="1000 poits"
                 android:textSize="21dp" />
 
         </RelativeLayout>

@@ -89,9 +89,14 @@ public class QrCodeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 // Get the points value from the snapshot
-                final Long points = snapshot.child(userLoginData).child("points").getValue(Long.class);
-
-                referralPoints.setText(String.valueOf(String.format("%d points", points)));
+                // Get the points value from the snapshot as Long
+                if (userLoginData.matches("\\d+")) {
+                    long points = ((Long) snapshot.child(userLoginData).child("points").getValue());
+                    referralPoints.setText(points + " points");
+                } else {
+                    String points = ((String) snapshot.child(userLoginData).child("points").getValue());
+                    referralPoints.setText(points + " points");
+                }
 
             }
 

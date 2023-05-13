@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.thesis.CartShopActivity;
 import com.example.thesis.R;
 import com.example.thesis.modules.DrinkModel;
 import com.google.common.reflect.TypeToken;
@@ -23,21 +24,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartViewHolder> {
-    private List<DrinkModel> cartItems = new ArrayList<>();
+    private ArrayList<DrinkModel> cartItems = new ArrayList<>();
     private Context context;
-    private OnItemClickListener Mainlistener;
+    private OnItemClickListener onItemClickListener;
 
     public interface OnItemClickListener {
         void onDecreaseClick(int position);
 
         void onIncreaseClick(int position);
+
+        void onDelete(int position, int price);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
-        this.Mainlistener = listener;
+        this.onItemClickListener = listener;
     }
 
-    public CartListAdapter(List<DrinkModel> cartItems, Context context) {
+    public CartListAdapter(ArrayList<DrinkModel> cartItems, Context context) {
         this.cartItems = cartItems;
         this.context = context;
     }
@@ -46,7 +49,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_cart_templates, parent, false);
-        return new CartViewHolder(view, Mainlistener);
+        return new CartViewHolder(view, onItemClickListener);
     }
 
     @Override
@@ -85,12 +88,12 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
 
             minusButton.setOnClickListener(v -> {
                 int position = getAdapterPosition();
-                Mainlistener.onDecreaseClick(position);
+                onItemClickListener.onDecreaseClick(position);
             });
 
             plusButton.setOnClickListener(v -> {
                 int position = getAdapterPosition();
-                Mainlistener.onIncreaseClick(position);
+                onItemClickListener.onIncreaseClick(position);
             });
 
             DeleteButton = itemView.findViewById(R.id.delete_button);
@@ -98,7 +101,12 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartVi
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
+                    int price = cartItems.get(position).getPrice();
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onDelete(position, price);
+                    }
                     deleteData(position, itemView.getContext());
+                    CartShopActivity.calculateTotalPrice();
                 }
             });
         }

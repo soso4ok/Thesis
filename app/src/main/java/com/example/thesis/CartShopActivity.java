@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,9 +22,14 @@ public class CartShopActivity extends AppCompatActivity {
 
     //XML components
     private ImageButton backButton;
+    private static TextView totalPrice;
 
+    //Variables
+    private static int calcTotal = 0;
+
+    private DrinkModel model;
     private RecyclerView rView;
-    private ArrayList<DrinkModel> drinkArrayList = new ArrayList<>();
+    private static ArrayList<DrinkModel> drinkArrayList = new ArrayList<>();
     private CartListAdapter mAdapter;
 
     @Override
@@ -32,11 +38,10 @@ public class CartShopActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shop_cart);
 
         backButton = findViewById(R.id.back_button);
-
+        totalPrice = findViewById(R.id.total_price);
         rView = findViewById(R.id.recyclerView);
 
-        DrinkModel model = (DrinkModel) getIntent().getSerializableExtra("drinkModel");
-        int originalPrice = getIntent().getIntExtra("drinkModel", 0);
+         model = (DrinkModel) getIntent().getSerializableExtra("drinkModel");
 
         if (model == null) {
             mAdapter = new CartListAdapter(drinkArrayList, getApplicationContext());
@@ -46,49 +51,69 @@ public class CartShopActivity extends AppCompatActivity {
         } else {
             mAdapter = new CartListAdapter(drinkArrayList, getApplicationContext());
             mAdapter.loadData(getApplicationContext()); // Load the data from SharedPreferences
-            mAdapter.addData(new DrinkModel(model.getId(), model.getName(), model.getText(), model.getPrice(), model.getImageURL(), model.getCount()), getApplicationContext());
-
+            mAdapter.addData(new DrinkModel(model.getId(), model.getName(), model.getText(), model.getPrice(), model.getSavedOriginalPrice(), model.getImageURL(), model.getCount()), getApplicationContext());
             rView.setAdapter(mAdapter);
             rView.setLayoutManager(new LinearLayoutManager(this));
         }
+
 
         backButton.setOnClickListener(view -> {
             onBackPressed();
         });
 
+
+
         mAdapter.setOnItemClickListener(new CartListAdapter.OnItemClickListener() {
             @Override
             public void onDecreaseClick(int position) {
-                DrinkModel current_item = mAdapter.getItem(position);
-                int count = current_item.getCount();
+                DrinkModel currentItem = mAdapter.getItem(position);
+                int count = currentItem.getCount();
 
                 if (count > 1) {
                     count--;
-                    current_item.setCount(count);
-                    current_item.setPrice(current_item.getPrice() - originalPrice);
+                    currentItem.setCount(count);
+                    currentItem.setPrice(currentItem.getPrice() - currentItem.getSavedOriginalPrice());
                     mAdapter.notifyItemChanged(position);
+
+                    calculateTotalPrice(); // Recalculate the total price
                 } else if (count == 1) {
-                    mAdapter.deleteData(position, getApplicationContext());
                 }
             }
 
             @Override
             public void onIncreaseClick(int position) {
-                DrinkModel current_item = mAdapter.getItem(position);
-                int count = current_item.getCount();
-                int curPrice = current_item.getPrice();
+                DrinkModel currentItem = mAdapter.getItem(position);
+                int count = currentItem.getCount();
 
                 if (count < 9) {
                     count++;
-                    current_item.setCount(count);
-
-                    current_item.setPrice(curPrice);
+                    currentItem.setCount(count);
+                    currentItem.setPrice(currentItem.getPrice() + currentItem.getSavedOriginalPrice());
                     mAdapter.notifyItemChanged(position);
                     // Update total price or any other logic here
+
+                    calculateTotalPrice(); // Recalculate the total price
                 }
             }
-        });
 
+                @Override
+                public void onDelete(int position, int price) {
+                    calculateTotalPrice(); // Recalculate the total price
+                }
+            });
 
+        calculateTotalPrice(); // Recalculate the total price
+
+    }
+
+    public static void calculateTotalPrice() {
+        int total = 0;
+
+        for (DrinkModel item : drinkArrayList) {
+            total += item.getPrice();
+        }
+
+        calcTotal = total;
+        totalPrice.setText(String.format("$%d", calcTotal));
     }
 }

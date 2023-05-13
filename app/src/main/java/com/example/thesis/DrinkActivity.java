@@ -101,12 +101,12 @@ public class DrinkActivity extends AppCompatActivity {
 
                 // Update the model with the count and price
                 model.setCount(countValue);
-                int originalPrice = model.getPrice();
-                model.setPrice(updatedPrice );
+                model.setSavedOriginalPrice(model.getPrice());
+                String x = updatedPriceText.getText().toString();
+                model.setPrice(Integer.parseInt(x.substring(1, x.length())));
 
                 // Pass the model and original price as extras to the intent
                 intent.putExtra("drinkModel", model);
-                intent.putExtra("originalPrice", originalPrice);
 
                 startActivity(intent);
 
