@@ -10,4 +10,8 @@
 
     <string name="promotions">NEWS</string>
     <string name="shopping_cart">shopping cart</string>
+    <string name="recent_orders">recent orders</string>
+    <string name="order_placed">order placed</string>
+
+    <string name="start_text">Your Destination for Quick and Easy Drink Delights!</string>
 </resources>

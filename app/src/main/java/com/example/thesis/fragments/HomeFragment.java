@@ -17,6 +17,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.thesis.CartShopActivity;
 import com.example.thesis.DrinkActivity;
 import com.example.thesis.R;
+import com.example.thesis.RecentOrdersActivity;
 import com.example.thesis.listView.HomeListAdapter;
 import com.example.thesis.listView.TranslateAnimationUtil;
 import com.example.thesis.modules.DrinkModel;
@@ -36,6 +37,7 @@ import java.util.List;
 public class HomeFragment extends Fragment implements HomeListAdapter.OnItemClickListener {
     private static List<DrinkModel> drinkArrayList;
     private ImageButton shopCartButton;
+    private ImageButton recentPurchasesButton;
     private DatabaseReference databaseReference;
     private HomeListAdapter mAdapter;
     private Context mContext;
@@ -61,6 +63,7 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnItemClic
         viewPager2.getChildAt(0).setOverScrollMode(0);
 
         shopCartButton = view.findViewById(R.id.cart_button);
+        recentPurchasesButton = view.findViewById(R.id.recent_purchases_button);
 
         super.onCreate(savedInstanceState);
         this.rView = view.findViewById(R.id.drink_list);
@@ -81,12 +84,14 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnItemClic
         };
         smoothScroller.setTargetPosition(0);
 
-        shopCartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CartShopActivity.class);
-                startActivity(intent);
-            }
+        shopCartButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), CartShopActivity.class);
+            startActivity(intent);
+        });
+
+        recentPurchasesButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), RecentOrdersActivity.class);
+            startActivity(intent);
         });
 
         return view;

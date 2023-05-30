@@ -1,6 +1,7 @@
 package com.example.thesis;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -14,23 +15,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thesis.listView.CartListAdapter;
 import com.example.thesis.modules.DrinkModel;
+import com.example.thesis.modules.OrderModel;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-/* loaded from: C:\Users\nxdgb\OneDrive\Рабочий стол\base_source_from_JADX\resources\classes5.dex */
 public class CartShopActivity extends AppCompatActivity {
+
+    private static final String PREF_RECENT_ORDERS = "recent_orders";
 
     //XML components
     private ImageButton backButton;
     private static TextView totalPrice;
+    private Button buyButton;
 
     //Variables
     private static int calcTotal = 0;
 
     private DrinkModel model;
     private RecyclerView rView;
-    private static ArrayList<DrinkModel> drinkArrayList = new ArrayList<>();
+    public static ArrayList<DrinkModel> drinkArrayList = new ArrayList<>();
     private CartListAdapter mAdapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +47,7 @@ public class CartShopActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shop_cart);
 
         backButton = findViewById(R.id.back_button);
+        buyButton = findViewById(R.id.buy_button);
         totalPrice = findViewById(R.id.total_price);
         rView = findViewById(R.id.recyclerView);
 
@@ -56,12 +66,24 @@ public class CartShopActivity extends AppCompatActivity {
             rView.setLayoutManager(new LinearLayoutManager(this));
         }
 
-
         backButton.setOnClickListener(view -> {
-            onBackPressed();
+            Intent intent = new Intent(CartShopActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+
         });
 
-
+        buyButton.setOnClickListener(v -> {
+            if (drinkArrayList.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "There are no drinks in the cart", Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(CartShopActivity.this, PaymentConfirmationActivity.class);
+                String x = totalPrice.getText().toString().substring(1, totalPrice.length());
+                addToRecentOrders(new OrderModel(drinkArrayList, Integer.parseInt(x)));
+                startActivity(intent);
+            }
+        });
 
         mAdapter.setOnItemClickListener(new CartListAdapter.OnItemClickListener() {
             @Override
@@ -104,6 +126,29 @@ public class CartShopActivity extends AppCompatActivity {
 
         calculateTotalPrice(); // Recalculate the total price
 
+    }
+
+    private void addToRecentOrders(OrderModel order) {
+        // Retrieve the current list of recent orders from SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences(PREF_RECENT_ORDERS, MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("orders", null);
+        ArrayList<OrderModel> recentOrdersList;
+        if (json != null) {
+            Type type = new TypeToken<ArrayList<OrderModel>>() {}.getType();
+            recentOrdersList = gson.fromJson(json, type);
+        } else {
+            recentOrdersList = new ArrayList<>();
+        }
+
+        // Add the new order to the list
+        recentOrdersList.add(order);
+
+        // Save the updated list back to SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        String updatedJson = gson.toJson(recentOrdersList);
+        editor.putString("orders", updatedJson);
+        editor.apply();
     }
 
     public static void calculateTotalPrice() {

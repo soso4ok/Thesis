@@ -51,13 +51,6 @@ public class LoginActivity extends AppCompatActivity {
         final String userEmailData = preferences.getString("Login", "");
         final String userPasswordData = preferences.getString("Password", "");
 
-        if (firebaseUser != null || !userEmailData.equals("") || !userPasswordData.equals("")) {
-            // User is already signed in, so go to home activity
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,8 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("Password", userPassword.getText().toString());
                 editor.apply();
 
-                final String userLoginData = userLogin.getText().toString().trim();
-                final String userPasswordData = userPassword.getText().toString().trim();
+                final String userLoginData = userLogin.getText().toString();
+                final String userPasswordData = userPassword.getText().toString();
 
                 String loginPattern = "^[^.#\\[\\]$]*$"; // regular expression to match input without '.', '#', '$', '[', or ']'
 

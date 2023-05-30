@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.thesis.CartShopActivity;
 import com.example.thesis.R;
+import com.example.thesis.RecentOrdersActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +36,7 @@ import androidmads.library.qrgenearator.QRGEncoder;
 public class QrCodeFragment extends Fragment {
 
     private ImageButton shopCartButton;
+    private ImageButton recentPurchasesButton;
     private ImageView qrImageView;
     private TextView referralPoints;
 
@@ -53,6 +55,8 @@ public class QrCodeFragment extends Fragment {
         referralPoints = view.findViewById(R.id.referral_points);
 
         shopCartButton = view.findViewById(R.id.cart_button);
+        recentPurchasesButton = view.findViewById(R.id.recent_purchases_button);
+
 
         shopCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,8 +110,12 @@ public class QrCodeFragment extends Fragment {
             }
         });
 
-        return view;
+        recentPurchasesButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), RecentOrdersActivity.class);
+            startActivity(intent);
+        });
 
+        return view;
     }
 
     // Encryption

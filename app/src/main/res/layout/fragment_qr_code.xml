@@ -101,7 +101,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:fontFamily="@font/bungeespice_regular"
+                android:fontFamily="@font/bungee_regular"
                 android:gravity="center"
                 android:textColor="@color/purple_500"
                 android:textSize="21dp" />

@@ -15,8 +15,6 @@ public class TranslateAnimationUtil implements View.OnTouchListener {
 
     private GestureDetector gestureDetector;
 
-
-
     public TranslateAnimationUtil(Context context, View viewAnimation){
         gestureDetector = new GestureDetector(context, new SimpleGestureDetector(viewAnimation));
     }
@@ -36,7 +34,7 @@ public class TranslateAnimationUtil implements View.OnTouchListener {
 
         @Override
         public boolean onScroll(@NonNull MotionEvent e1, @NonNull MotionEvent e2, float distanceX, float distanceY) {
-            if (distanceY > 0) {
+            if (distanceY > 1) {
                 hidenView();
             } else {
                 showView();

@@ -39,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("fragment")) {
+            String fragmentName = intent.getStringExtra("fragment");
+            if (fragmentName.equals("QrCodeFragment")) {
+                QrCodeFragment qrCodeFragment = new QrCodeFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, qrCodeFragment)
+                        .commit();
+            }
+        }
+
     }
 
     private void replaceFragment(Fragment fragment) {

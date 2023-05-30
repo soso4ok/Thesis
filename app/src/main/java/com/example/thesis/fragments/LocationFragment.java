@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 
 import com.example.thesis.CartShopActivity;
 import com.example.thesis.R;
+import com.example.thesis.RecentOrdersActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,6 +21,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class LocationFragment extends Fragment {
     
     private ImageButton shopCartButton;
+    private ImageButton recentPurchasesButton;
 
     private GoogleMap mMap;
 
@@ -30,6 +32,7 @@ public class LocationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_location, container, false);
 
         shopCartButton = view.findViewById(R.id.cart_button);
+        recentPurchasesButton = view.findViewById(R.id.recent_purchases_button);
 
         shopCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +71,12 @@ public class LocationFragment extends Fragment {
                 });
             }
         });
+
+        recentPurchasesButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), RecentOrdersActivity.class);
+            startActivity(intent);
+        });
+
         // Return view
         return view;
     }

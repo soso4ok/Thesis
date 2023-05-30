@@ -33,12 +33,12 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         registerBtn = findViewById(R.id.register_btn);
-        loginBtn = findViewById(R.id.backToLogin);
+        loginBtn = findViewById(R.id.login_btn);
 
-        login = findViewById(R.id.login);
-        email = findViewById(R.id.editTextTextEmailAddress);
-        password = findViewById(R.id.editTextTextPassword);
-        repeatPassword = findViewById(R.id.editTextTextPassword);
+        login = findViewById(R.id.loginPlane);
+        email = findViewById(R.id.gmailPlane);
+        password = findViewById(R.id.passwordPlane);
+        repeatPassword = findViewById(R.id.repeatPasswordPlane);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +66,8 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please enter a valid Email", Toast.LENGTH_LONG).show();
                 } else if(!loginData.matches(loginPattern)) {
                     Toast.makeText(getApplicationContext(), "Login can't contain '.', '#', '$', '[', or ']'", Toast.LENGTH_LONG).show();
+                } else if (loginData.length() < 4) {
+                    Toast.makeText(getApplicationContext(), "Login must be contain more 4 values", Toast.LENGTH_LONG).show();
                 }
                 // check if passwords are matching with each other
                 // if not matching with each other then show a |

@@ -39,9 +39,11 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.MyView
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(MyViewHolder holder, int position) {
         DrinkModel drinkModel = this.list.get(position);
+
         holder.Title.setText(drinkModel.getName());
         holder.Text.setText(drinkModel.getText());
         holder.Price.setText(String.format("$%d", Integer.valueOf(drinkModel.getPrice())));
+
         Glide.with(holder.tamplateImg.getContext()).load(this.list.get(position).getImageURL()).placeholder(com.firebase.ui.auth.R.drawable.common_full_open_on_phone).error(com.firebase.ui.auth.R.drawable.common_full_open_on_phone).into(holder.tamplateImg);
         holder.bind(drinkModel, this.mListener, position);
     }

@@ -92,24 +92,37 @@ public class DrinkActivity extends AppCompatActivity {
                 setBackButton(view);
             }
         });
-        addDrinkToCart.setOnClickListener(new View.OnClickListener() { // from class: com.example.thesis.activities.1
-            @Override // android.view.View.OnClickListener
+        addDrinkToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DrinkActivity.this, CartShopActivity.class);
-                String count = countText.getText().toString();
-                int countValue = Integer.parseInt(count);
+                CartShopActivity cartShopActivity = new CartShopActivity();
+                if (cartShopActivity.drinkArrayList != null) {
+                    boolean itemFound = false;
+                    for (DrinkModel drinkModel : cartShopActivity.drinkArrayList) {
+                        if (drinkModel.getName().equals(model.getName())) {
+                            itemFound = true;
+                            break; // Exit the loop since the item is already in the cart
+                        }
+                    }
+                    if (itemFound) {
+                        Toast.makeText(getApplicationContext(), "This product is already in your cart", Toast.LENGTH_LONG).show();
+                    } else {
+                        Intent intent = new Intent(DrinkActivity.this, CartShopActivity.class);
+                        String count = countText.getText().toString();
+                        int countValue = Integer.parseInt(count);
 
-                // Update the model with the count and price
-                model.setCount(countValue);
-                model.setSavedOriginalPrice(model.getPrice());
-                String x = updatedPriceText.getText().toString();
-                model.setPrice(Integer.parseInt(x.substring(1, x.length())));
+                        // Update the model with the count and price
+                        model.setCount(countValue);
+                        model.setSavedOriginalPrice(model.getPrice());
+                        String x = updatedPriceText.getText().toString();
+                        model.setPrice(Integer.parseInt(x.substring(1, x.length())));
 
-                // Pass the model and original price as extras to the intent
-                intent.putExtra("drinkModel", model);
+                        // Pass the model and original price as extras to the intent
+                        intent.putExtra("drinkModel", model);
 
-                startActivity(intent);
-
+                        startActivity(intent);
+                    }
+                }
             }
         });
     }

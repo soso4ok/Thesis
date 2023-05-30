@@ -18,8 +18,8 @@
             android:layout_width="105dp"
             android:layout_height="match_parent"
             android:background="@drawable/design_background_img"
-            android:scaleType="fitXY"
-            android:src="@drawable/common_google_signin_btn_icon_dark_normal" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/loader" />
 
 
         <RelativeLayout
@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:layout_marginTop="3dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginEnd="0dp"
@@ -38,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="-5dp"
-                android:fontFamily="@font/bungeespice_regular"
+                android:fontFamily="@font/bungee_regular"
                 android:includeFontPadding="false"
                 android:text="@string/fui_name_hint"
                 android:textColor="@color/purple_500"
@@ -55,7 +56,7 @@
                 android:maxLines="3"
                 android:lineSpacingExtra="0.1px"
                 android:text="@string/fui_name_hint"
-                android:textColor="@color/old_rose"
+                android:textColor="@color/text"
                 android:textSize="12dp" />
         </RelativeLayout>
 
