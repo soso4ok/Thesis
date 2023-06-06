@@ -161,4 +161,10 @@ public class CartShopActivity extends AppCompatActivity {
         calcTotal = total;
         totalPrice.setText(String.format("$%d", calcTotal));
     }
+    public void onBackPressed() {
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
+    }
+
 }

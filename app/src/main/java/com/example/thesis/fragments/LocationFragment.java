@@ -18,8 +18,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class LocationFragment extends Fragment {
-    
+public class LocationFragment extends Fragment implements OnMapReadyCallback {
+
     private ImageButton shopCartButton;
     private ImageButton recentPurchasesButton;
 
@@ -28,7 +28,7 @@ public class LocationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Initialize view
+        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_location, container, false);
 
         shopCartButton = view.findViewById(R.id.cart_button);
@@ -42,42 +42,35 @@ public class LocationFragment extends Fragment {
             }
         });
 
-        // Initialize map fragment
-        SupportMapFragment supportMapFragment=(SupportMapFragment)
+        SupportMapFragment supportMapFragment = (SupportMapFragment)
                 getChildFragmentManager().findFragmentById(R.id.google_map);
+        supportMapFragment.getMapAsync(this);
 
-        // Async map
-        supportMapFragment.getMapAsync(new OnMapReadyCallback() {
+        recentPurchasesButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onMapReady(GoogleMap googleMap) {
-                // When map is loaded
-                googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-                    @Override
-                    public void onMapClick(LatLng latLng) {
-                        // When clicked on map
-                        // Initialize marker options
-                        MarkerOptions markerOptions=new MarkerOptions();
-                        // Set position of marker
-                        markerOptions.position(latLng);
-                        // Set title of marker
-                        markerOptions.title(latLng.latitude+" : "+latLng.longitude);
-                        // Remove all marker
-                        googleMap.clear();
-                        // Animating to zoom the marker
-                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
-                        // Add marker on map
-                        googleMap.addMarker(markerOptions);
-                    }
-                });
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), RecentOrdersActivity.class);
+                startActivity(intent);
             }
         });
 
-        recentPurchasesButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), RecentOrdersActivity.class);
-            startActivity(intent);
-        });
-
-        // Return view
         return view;
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        LatLng location1 = new LatLng(48.920544, 24.707491);  // вулиця Незалежності, 5
+        LatLng location2 = new LatLng(48.909203, 24.704441);  // вулиця Євгена Коновальця, 86
+        LatLng location3 = new LatLng(48.907199, 24.670679);  // вулиця Гетьмана Мазепи, 164
+        LatLng location4 = new LatLng(48.924918, 24.708866);  // вулиця Незалежності, 81
+
+        mMap.addMarker(new MarkerOptions().position(location1).title("вулиця Незалежності, 5"));
+        mMap.addMarker(new MarkerOptions().position(location2).title("вулиця Євгена Коновальця, 86"));
+        mMap.addMarker(new MarkerOptions().position(location3).title("вулиця Гетьмана Мазепи, 164"));
+        mMap.addMarker(new MarkerOptions().position(location4).title("вулиця Незалежності, 81"));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location1, 10));
     }
 }

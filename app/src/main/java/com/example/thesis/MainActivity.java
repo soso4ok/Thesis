@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
             }
         }
-
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -87,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
                             return true;
                 }
             };
-
-
 
     public void onBackPressed() {
         moveTaskToBack(true);

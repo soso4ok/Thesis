@@ -152,8 +152,6 @@ public class DrinkActivity extends AppCompatActivity {
     }
 
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: lambda$onCreate$2$com-example-thesis-activities-DrinkActivity  reason: not valid java name */
     public void setBackButton(View view) {
         onBackPressed();
     }
